@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QCalc</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="normalize.css">
+</head>
+<body>
+    <form action="" method="post" id="theForm">
+        <fieldset id="f1">
+            <h3 title="Enter the material dimensions and flat part dimensions below.&#10Press 'calculate' to see the material quantity and parts per sheet.">Material Calculations ⓘ</h3>
+            <div class="labels"><label for="width">Material Width &nbsp;</label><input type="text" name="width" id="width" value="0" min="0.0" required></div>
+            <div class="labels"><label for="length">Material Length </label><input type="text" name="length" id="length" value="0" min="0.0" required></div>
+            <div class="labels"><label for="partWidth">Part Width (Flat) </label><input type="text" name="partWidth" id="partWidth" value="0" min="0.0" required></div>
+            <div class="labels"><label for="partLength">Part Length (Flat) </label><input type="text" name="partLength" id="partLength" value="0" min="0.0" required></div>
+            <div style="min-height: 88px;"></div> <!--Spacer-->
+            <div class="labels"><input type="submit" value="Calculate" id="submit"></div>
+            <div class="labels"><label for="materialQuantityTotal">Material Quantity </label><input type="text" name="materialQuantityTotal" id="materialQuantityTotal" value="0" min="0.0" readonly></div>
+            <div class="labels"><label for="partsPerSheet">Parts Per Sheet </label><input type="text" name="partsPerSheet" id="partsPerSheet" value="0" min="0.0" readonly></div>
+            
+        </fieldset>
+
+    </form>
+
+    <form action="" method="post" id="theForm2">
+        <fieldset id="f2">
+            <h3 title="This module calculates the number of parts you&#10can fit into a box dependent on the length,&#10width and height of the object and of the box.&#10Press calculate to display the calculated values.">Box Calculations ⓘ</h3>
+            <div class="labels"><label for="boxLength">Box Length </label><input type="text" name="boxLength" id="boxLength" value="0" min="0.0" required></div>
+            <div class="labels"><label for="boxWidth">Box Width &nbsp;</label><input type="text" name="boxWidth" id="boxWidth" value="0" min="0.0" required></div>            
+            <div class="labels"><label for="boxHeight">Box Height </label><input type="text" name="boxHeight" id="boxHeight" value="0" min="0.0" required></div>
+            <div class="labels"><label for="partLengthFG">Part Length (Finished) </label><input type="text" name="partLengthFG" id="partLengthFG" value="0" min="0.0" required></div>
+            <div class="labels"><label for="partWidthFG">Part Width (Finished) </label><input type="text" name="partWidthFG" id="partWidthFG" value="0" min="0.0" required></div>
+            <div class="labels"><label for="partHeightFG">Part Height (Finished) </label><input type="text" name="partHeightFG" id="partHeightFG" value="0" min="0.0" required></div>
+            <div style="min-height: 47px;"></div>
+            <div class="labels"><input type="submit" value="Calculate" id="submit"></div>
+            <div class="labels"><label for="boxQuantityTotal">Box Quantity / Parts per box </label><input type="text" name="boxQuantityTotal" id="boxQuantityTotal" value="0" min="0.0" readonly></div>
+            
+        </fieldset>
+
+    </form>
+
+    <form action="" method="post" id="theForm3">
+        <fieldset id="f3">
+            <h3 title="Enter the finished good dimensions of the part. &#10Press calculate to determine the percentage of use&#10of a 24x600 roll of foam.&#10NOTE: Part Length cannot exceed 24 inches.">Foam Calculations ⓘ</h3>
+            <div class="labels"><label for="partLengthFin">Part Length (Finished) </label><input type="text" name="partLengthFin" id="partLengthFin" value="0" min="0.0" required></div>
+            <div class="labels"><label for="partWidthFin">Part Width (Finished) </label><input type="text" name="partWidthFin" id="partWidthFin" value="0" min="0.0" required></div>
+            <div class="labels"><label for="partHeightFin">Part Height (Finished) </label><input type="text" name="partHeightFin" id="partHeightFin" value="0" min="0.0" required></div>
+            <div style="min-height: 180px;"></div> <!--Spacer-->
+            <div class="labels"><input type="submit" value="Calculate" id="submit"></div>
+            <div class="labels"><label for="foamQuantityTotal">Foam Quantity </label><input type="text" name="foamQuantityTotal" id="foamQuantityTotal" value="0" min="0.0" readonly></div>
+            
+        </fieldset>
+
+    </form>
+
+    <form action="" method="post" id="theForm4">
+        <fieldset id="f4">
+            <h3 title="Enter the dimensions of the flat part.&#10Enter the number of holes in the part.&#10Enter the total perimeter inches of the&#10outside of the part in addition to the holes.&#10Enter the gauge of the material and&#10Select material type from the dropdown.">Laser Calculations ⓘ</h3>
+            <div class="labels"><label for="partWidth1">Part Width (Flat) </label><input type="text" name="partWidth1" id="partWidth1" value="0" min="0.0" required></div>
+            <div class="labels"><label for="partLength1">Part Length (Flat) </label><input type="text" name="partLength1" id="partLength1" value="0" min="0.0" required></div>
+            <div class="labels"><label for="holes">Pierces / Holes </label><input type="text" name="holes" id="holes" value="0" min="0.0" required></div>
+            <div class="labels"><label for="diameterTotal">Total of Diameters </label><input type="text" name="diameterTotal" id="diameterTotal" value="0" min="0.0" required title="Only use for round holes. Add total of all diameters, input here. (Optional)"></div>
+            <div class="labels"><button onclick="calcInches()" type="button" id="periminchbtn" title="Multiplies total of all diameters (If entered) by Pi and adds sum to perimeter inches. Else, calculates perimeter inches.">Calculate Perim. Inches</button></div>
+            <div class="labels"><label for="perimeterInches">Total Perimeter Inches </label><input type="number" name="perimeterInches" id="perimeterInches" value="0" min="0.0" required></div>
+            <!-- <hr> -->
+            <div class="labels"><label for="mtlthickness">Material Thickness (GA) </label><input type="text" name="mtlthickness" id="mtlthickness" value="0" min="0.0" required></div>
+            <div class="labels"></div>
+            <hr>
+            <label for="material" id="dropdown">Choose Material Type: </label>
+            <select id="material" name="material">
+              <option value="crs" id="crs">CRS</option>
+              <option value="grhglx" id="grhglx">GRH/GLX</option>
+              <option value="hrpo" id="hrpo">HRPO</option>
+              <option value="alumsht" id="alumsht">ALUM-SHT</option>
+              <option value="alumplt" id="alumplt">ALUM-PLT</option>
+              <option value="sssht" id="sssht">SS-SHT</option>
+              <option value="ssmir" id="ssmir">SS-MIR</option>
+            </select>
+            <div><input type="submit" value="Calculate" id="submit"></div>
+            <div><label for="laserpph">Parts Per Hour (Laser) </label><input type="text" name="laserpph" id="laserpph" value="0" min="0.0" readonly></div>
+            
+            
+        </fieldset>
+
+    </form>
+    
+
+    <script src="main.js"></script>
+</body>
+</html>

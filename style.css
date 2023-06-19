@@ -1,0 +1,102 @@
+
+html {
+    height: 100%;
+}
+body {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: start; /*was center*/
+    height: 100%;
+    background-image: linear-gradient(to top right, green, blue);
+    background-repeat: no-repeat;
+}
+
+form {
+    color: white;
+    border-color: rgba(0, 136, 255, 0);
+    background: rgba(0, 0, 0, 0.646);
+    border-radius: 0px; /*was 25*/
+    height: fit-content;
+    margin: auto;
+    margin-block: 20px; /*was 50*/
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.6);
+    transition: .3s;
+    border-radius: 1em;
+}
+
+form:hover {
+    box-shadow:rgba(0, 0, 0, 0.404) 2px 2px 3px;
+    transition: .3s;
+}
+
+h3:hover {
+    cursor: pointer;
+}
+
+.labels {
+    padding-top: 5px;
+}
+
+input {
+    background: rgb(232, 232, 232);
+    border-radius: .2em;
+    border: 0px;
+    min-height: 20px;
+}
+
+#periminchbtn {
+    background-color: #075aff;
+    color: white;
+    padding: 5px;
+    border-radius: .5em;
+    border: 0px;
+}
+#periminchbtn:hover {
+    cursor: pointer;
+    background-color: rgb(0, 255, 0);
+    color: black;
+}
+
+fieldset {
+    margin: 10px;
+    margin-left: 20px;
+    padding: 20px;
+    min-height: 500px;
+    max-height: 500px;
+    max-width: 210px;
+    border-color: rgba(255, 255, 255, 0);
+    border-radius: 18px;
+    box-shadow: rgba(255, 255, 255, 0) 1px 1px 5px;
+    font-family: sans-serif, Arial, Helvetica;
+    font-size: 15px;
+}
+
+
+
+
+.invisible {
+    color: rgba(255, 255, 255, 0);
+    background-color: rgba(255, 255, 255, 0);
+    border: 0px rgba(255, 255, 255, 0);
+}
+
+#submit {
+    margin-block: 5px;
+    padding-inline: 15px;
+    padding-block: 5px;
+    background-color: rgb(38, 38, 255);
+    color: white;
+    border-radius: 15px;
+    font-family: sans-serif, Arial, Helvetica;
+    font-weight: 300;
+    font-size: 14px;
+    transition: .3s;
+}
+#submit:hover {
+    cursor: pointer;
+    color: black;
+    background-color: rgb(0, 255, 68);
+    /* box-shadow:rgb(0, 221, 255) 2px 2px 3px; */
+    transition: .3s;
+}
